@@ -1,0 +1,24 @@
+<ion-content>
+  <div class="map-wrapper">
+  	<map #map></map>
+  </div>
+
+  <div class="bottom inform-controls">
+  	<ion-row>
+  		<ion-col>
+			<ion-fab center bottom #fab>
+				<button ion-fab color="dark"><ion-icon name="menu"></ion-icon></button>
+				<ion-fab-list side="top">
+					<button ion-fab (click)="map.centerLocation(); fab.close()"><ion-icon name="navigate"></ion-icon></button>
+				</ion-fab-list>
+				<ion-fab-list side="left">
+					<button ion-fab (click)="gotoFormPage()"><ion-icon name="megaphone"></ion-icon></button>
+				</ion-fab-list>
+				<ion-fab-list side="right">					
+					<button ion-fab><ion-icon name="list"></ion-icon></button>
+				</ion-fab-list>
+			</ion-fab>
+  		</ion-col>
+  	</ion-row>
+  </div>
+</ion-content>

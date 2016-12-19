@@ -7,13 +7,18 @@ import {FormPage} from '../form/form';
   templateUrl: 'home.html',
 })
 export class HomePage {
+	viewMode = 'map';
 
-  constructor(public navCtrl: NavController) {
-    
-  }
+	constructor(public navCtrl: NavController) {
 
-  gotoFormPage() {
-  	this.navCtrl.push(FormPage);
-  }
+	}
+
+	gotoFormPage() {
+		this.navCtrl.push(FormPage);
+	}
+
+	gotoListPage() {
+		
+	}
 
 }

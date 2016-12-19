@@ -1,3 +1,20 @@
+<ion-header>
+<ion-toolbar class="no-border-bottom">
+		<ion-searchbar></ion-searchbar>
+  </ion-toolbar>
+  <ion-toolbar class="no-border-top">
+	    <ion-segment>
+	      <ion-segment-button value="map" [class.segment-activated]="viewMode === 'map'">
+	        Map
+	      </ion-segment-button>
+	      <ion-segment-button value="list" [class.segment-activated]="viewMode === 'list'">
+	        List
+	      </ion-segment-button>
+	    </ion-segment>
+    
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <div class="map-wrapper">
   	<map #map></map>

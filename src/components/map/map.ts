@@ -74,11 +74,44 @@ export class MapComponent implements OnInit {
     }
   }
 
-  setMarker(location) {
+  setMarker1(location) {
     this.currentPosMarker = new google.maps.Marker({
       position: location,
       map: this.map,
-      animation: google.maps.Animation.Drop
+      animation: google.maps.Animation.Drop,
+      icon: '../assets/img/my-location.png',
+      title: 'Вы здесь.'
     });
+  }
+
+  setMarker(location) {
+    var overlay = new google.maps.OverlayView();
+    overlay.draw = function() {
+      console.log('hello');
+      var div = this.div_;
+      if (!div) {
+        div = this.div_ = document.createElement('DIV');
+        var dot = document.createElement('DIV');
+        dot.classList.add('dot');
+
+        var ring = document.createElement('DIV');
+        ring.classList.add('ring');
+  
+        //you could/should do most of the above via styling the class added below
+        div.classList.add('my-location');
+        div.appendChild(dot);
+        div.appendChild(ring);
+        var panes = this.getPanes();
+        panes.overlayImage.appendChild(div);
+        console.log(div);
+      }
+
+      var point = this.getProjection().fromLatLngToDivPixel(location);
+      if (point) {
+        div.style.left = point.x + 'px';
+        div.style.top = point.y + 'px';
+      }
+    };
+    overlay.setMap(this.map);
   }
 }

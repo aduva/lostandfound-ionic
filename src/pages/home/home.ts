@@ -14,7 +14,7 @@ export class HomePage {
 	}
 
 	gotoFormPage() {
-		this.navCtrl.push(FormPage);
+		this.navCtrl.push(FormPage, true);
 	}
 
 	gotoListPage() {

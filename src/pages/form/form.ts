@@ -13,14 +13,29 @@ import { NavController } from 'ionic-angular';
 })
 export class FormPage {
 	step = 1;
+	totalSteps = 6;
 	constructor(public navCtrl: NavController) {}
 
 	ionViewDidLoad() {
-		console.log('Hello FormPage Page');
+		console.log('Hello FormPage Page', this.step);
 	}
 
 	continue() {
 		this.step++;
+		if (this.step === 7) {
+			this.step = 1;
+		}
 	}
 
+	getProgress() {
+		let progress = 0;
+		if (this.step !== 1) {
+			progress = this.step * 100 / this.totalSteps;
+		}
+		return progress + '%';
+	}
+
+	goBack() {
+		this.navCtrl.pop();
+	}
 }

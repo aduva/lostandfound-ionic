@@ -5,6 +5,7 @@ import {HomePage} from '../pages/home/home';
 import {FormPage} from '../pages/form/form';
 import {MapComponent} from '../components/map/map';
 import {LocatorComponent} from '../components/locator/locator';
+import {FormControlComponent} from '../components/form-control/form-control';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import {LocatorComponent} from '../components/locator/locator';
     HomePage,
     FormPage,
     MapComponent,
-    LocatorComponent
+    LocatorComponent,
+    FormControlComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)

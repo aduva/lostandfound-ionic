@@ -1,18 +1,36 @@
 <ion-content>
-
 <div class="wrapper">
 	<div class="title">
 		<h1>Объявление</h1>
 	</div>
 
 	<form class="form form-full" autocomplete="off">
-		<ol class="fields">
-			<li>
-				<label>What's your name?</label>
-				<input name="q1" type="text" placeholder="Dean Moriarty" required />
-			</li>
-		</ol>
-	</form>
-</div>
+		<form-control [isVisible]="step === 1">
+			<label>What's your name?</label>
+			<input name="q1" type="text" placeholder="Dean Moriarty" required />
+		</form-control>
 
+		<form-control [isVisible]="step === 2">
+			<label>What's your name?</label>
+			<input name="q1" type="text" placeholder="Dean Moriarty" required />
+		</form-control>
+
+	</form>
+	<div class="form-controls">
+		<button class="form-continue" (click)="continue()"><span>Continue</span></button>
+		<nav class="form-nav-dots form-show">
+			<button [class.form-dot-current]="step === 1"></button>
+			<button [class.form-dot-current]="step === 2"></button>
+			<button [class.form-dot-current]="step === 3"></button>
+			<button [class.form-dot-current]="step === 4"></button>
+			<button [class.form-dot-current]="step === 5"></button>
+			<button [class.form-dot-current]="step === 6"></button>
+		</nav>
+		<span class="form-numbers form-show">
+			<span class="form-number-current">{{step}}</span>
+			<span class="form-number-total">{{totalSteps}}</span>
+		</span>
+		<div class="form-progress" [style.width]="getProgress()"></div>
+	</div>
+</div>
 </ion-content>
